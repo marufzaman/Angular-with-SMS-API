@@ -1,10 +1,41 @@
-<div>
-    <label for="new-student">Name: </label>
-    <input id="new-student" #studentName />
-    <label for="new-student">Gender: </label>
-    <input id="new-student" #studentGender />
+<!-- <div>
+  <label for="new-student">Name: </label>
+  <input id="new-student" #studentName />
+  <label for="new-student">Gender: </label>
+  <input id="new-student" #studentGender />
 
-    <button type="button" class="add-button" (click)="add(studentName.value, studentGender.value); studentName.value=''; studentGender.value=''">
-  Add student
-</button>
+  <button
+    type="button"
+    class="add-button"
+    (click)="
+      add(studentName.value, studentGender.value);
+      studentName.value = '';
+      studentGender.value = ''
+    "
+  >
+    Add student
+  </button>
+</div> -->
+
+<div class="container-fluid">
+  <!-- <form #studentNew="ngForm" (ngSubmit)="add(studentNew.value); studentNew.value='' "> -->
+  <form #studentNew="ngForm">
+    <label for="name">Name:</label>
+    <input type="text" name="name" ngModel placeholder="Enter Name" />
+    <br /><br />
+    <label for="gender">Gender:</label>
+    <select name="gender" id="gender" ngModel placeholder="Select Gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Others">Others</option>
+    </select>
+    <br /><br />
+    <button
+      type="button"
+      class="add-button"
+      (click)="add(studentNew.value); (studentNew)"
+    >
+      Add Student
+    </button>
+  </form>
 </div>

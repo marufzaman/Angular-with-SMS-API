@@ -1,14 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
-import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentsComponent } from './students/students.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { StudentFormComponent } from './student-form/student-form.component';
-import { AppRoutingModule } from './app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { StudentsComponent } from './students/students.component';
 
 @NgModule({
   declarations: [
@@ -16,15 +15,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     StudentsComponent,
     StudentFormComponent,
     StudentDetailComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule
-  ],
+  imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

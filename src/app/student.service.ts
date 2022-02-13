@@ -1,11 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of, pipe } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
-
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Student } from './student';
+
 // import { STUDENTS } from './mock-students';
 // import { MessageService } from './message.service';
 
@@ -13,19 +10,18 @@ import { Student } from './student';
   providedIn: 'root',
 })
 export class StudentService {
-
-  private studentsUrl = 'http://localhost:8080/api/v1/students';  // URL to web api
+  private studentsUrl = 'http://localhost:8080/api/v1/students'; // URL to web api
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
   // constructor(private messageService: MessageService) { }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   /** GET students from the server */
   getStudents(): Observable<Student[]> {
-    return this.http.get<Student[]>(this.studentsUrl)
+    return this.http.get<Student[]>(this.studentsUrl);
     // .pipe(
     //   catchError(this.handleError<Student[]>('getStudents', []))
     // );
@@ -34,7 +30,7 @@ export class StudentService {
   /** GET student by id. Will 404 if id not found */
   getStudent(id: number): Observable<Student> {
     const url = `${this.studentsUrl}/${id}`;
-    return this.http.get<Student>(url)
+    return this.http.get<Student>(url);
     // .pipe(
     //   catchError(this.handleError<Student>(`getStudent id=${id}`))
     // );
@@ -42,7 +38,7 @@ export class StudentService {
 
   /** POST: add a new student to the server */
   addStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.studentsUrl, student, this.httpOptions)
+    return this.http.post<Student>(this.studentsUrl, student, this.httpOptions);
     // .pipe(
     //   catchError(this.handleError<Student>('addStudent'))
     // );
@@ -50,8 +46,13 @@ export class StudentService {
 
   /** PUT: update the student on the server */
   updateStudent(student: Student): Observable<any> {
-    const url = `${this.studentsUrl}/${student.id}`+'?name='+`${student.name}`+'&gender'+`${student.gender}`;
-    return this.http.put(this.studentsUrl, student)
+    const url =
+      `${this.studentsUrl}/${student.id}` +
+      '?name=' +
+      `${student.name}` +
+      '&gender' +
+      `${student.gender}`;
+    return this.http.put(url, student);
     // .pipe(
     // catchError(this.handleError<any>('updateStudent'))
     // );
@@ -61,7 +62,7 @@ export class StudentService {
   deleteStudent(id: number): Observable<Student> {
     const url = `${this.studentsUrl}/${id}`;
 
-    return this.http.delete<Student>(url, this.httpOptions)
+    return this.http.delete<Student>(url, this.httpOptions);
     // .pipe(
     //   catchError(this.handleError<Student>('deleteStudent'))
     // );
