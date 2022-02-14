@@ -1,32 +1,38 @@
+<br><br><br>
 <div class="row justify-content-lg-center">
-    <div class="d-flex justify-content-around col-10">
+    <div class="d-flex justify-content-between col-6">
         <h4>Student List</h4>
-        <a routerLink="/form/" class="add-button">Add Student</a>
+        <a routerLink="/form/"
+           class="btn btn-dark">
+          Add New Student
+        </a>
     </div>
-    <br><br>
-    <table class="table table-hover col-7">
+</div>
+<br><br>
+<div class="row justify-content-lg-center">
+  <table class="table table-hover col-6">
         <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Action</th>
+            <tr class="align-self-center">
+                <th class="col-1">#</th>
+                <th class="col-5">Name</th>
+                <th class="col-3">Gender</th>
+                <th class="col-3 text-center">Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let student of students">
-                <th scope="row">{{ students.indexOf(student)+1+". " }}</th>
+            <tr *ngFor="let student of students" class="align-self-center">
+                <th>{{ students.indexOf(student)+1+". " }}</th>
                 <td>{{ student.name }}</td>
                 <td>{{ student.gender }}</td>
-                <td>
-                    <a routerLink="/edit/{{ student.id }}" class="btn btn-outline-success">
+                <td class="d-flex justify-content-end">
+                    <a routerLink="/view/{{ student.id }}" class="btn btn-outline-success mx-1">
                     View
                     </a>
-                    <a routerLink="/edit/{{ student.id }}" class="btn btn-outline-secondary">
+                    <a routerLink="/edit/{{ student.id }}" class="btn btn-outline-secondary mx-1">
                     Edit
                     </a>
-                    <button type="button" class="btn btn-outline-danger" title="DELETE" (click)="delete(student)">
-                    <span aria-hidden="false">&times;</span>
+                    <button class="btn btn-outline-danger mx-1" title="DELETE" (click)="delete(student)">
+                      X
                     </button>
                 </td>
             </tr>

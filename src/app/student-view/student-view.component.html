@@ -1,15 +1,41 @@
 <div class="container-fluid" *ngIf="student">
+  <br> <br>
+  <h3 class="text-uppercase">Details:</h3>
+  <br>
+  <div>
+    <div class="row">
+      <label
+        class="font-weight-bold mx-4">
+        Name:
+      </label>
+      <p>
+        {{student.name}}
+      </p>
+    </div>
 
-    <h5>{{student.name | uppercase}}</h5>
-    <div>
-        <label for="student-name">Name: {{student.name}}</label>
+    <div class="row">
+      <label
+        class="font-weight-bold mx-4">
+        Gender:
+      </label>
+      <p>
+        {{student.gender}}
+      </p>
     </div>
-    <div>
-        <label for="student-gender">Gender: {{student.gender}}</label>
-    </div>
-    <button type="button" (click)="goBack()">go back</button>
-    <a routerLink="/view/{{ student.id }}" class="btn btn-outline-success">
-      View
+  </div>
+
+  <br>
+  <div>
+    <button
+      type="button"
+      class="btn btn-warning px-3 mx-2"
+      (click)="goBack()">
+      Go Back
+    </button>
+    <a routerLink="/Edit/{{ student.id }}"
+       class="btn btn-outline-success px-3 mx-2">
+      Edit
     </a>
+  </div>
 
 </div>

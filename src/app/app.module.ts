@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentEditComponent } from './student-edit/student-edit.component';
+import { StudentViewComponent } from './student-view/student-view.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsComponent } from './students/students.component';
 
@@ -15,7 +16,8 @@ import { StudentsComponent } from './students/students.component';
     StudentsComponent,
     StudentFormComponent,
     StudentEditComponent,
-    DashboardComponent
+    DashboardComponent,
+    StudentViewComponent
   ],
   imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule],
   providers: [],

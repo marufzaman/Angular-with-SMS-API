@@ -1,23 +1,30 @@
-<div class="container-fluid">
+<br><br><br><br><br>
+<div class="container-fluid justify-content col-6">
   <!-- <form #studentNew="ngForm" (ngSubmit)="add(studentNew.value); studentNew.value='' "> -->
   <form #studentNew="ngForm" >
-    <label for="name">Name:</label>
-    <input type="text" name="name" ngModel placeholder="Enter Name" />
-    <br /><br />
-    <label for="gender">Gender:</label>
-    <select name="gender" id="gender" ngModel>
-      <option value="" disabled selected>Select Gender</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-      <option value="Others">Others</option>
-    </select>
-    <br /><br />
-    <button
+    <div class="form-group">
+      <label for="name" class="font-weight-bold">Name:</label>
+      <input class="form-control" type="text" name="name" id="name" ngModel placeholder="Enter Name">
+    </div>
+
+    <div class="form-group">
+      <label for="gender" class="font-weight-bold">Gender:</label>
+      <select class="form-control" name="gender" id="gender" ngModel>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+      </select>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button
       type="button"
-      class="add-button"
-      (click)="add(studentNew.value); (studentNew)"
-    >
+      class="btn btn-info font-bold px-3 mx-3"
+      (click)="add(studentNew.value); (studentNew)">
       Add Student
     </button>
+    <button class="btn btn-danger px-3 mx-3" (click)="goBack()">Cancel</button>
+    </div>
   </form>
 </div>
