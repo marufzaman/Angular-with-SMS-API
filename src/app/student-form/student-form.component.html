@@ -1,0 +1,10 @@
+<div>
+    <label for="new-student">Name: </label>
+    <input id="new-student" #studentName />
+    <label for="new-student">Gender: </label>
+    <input id="new-student" #studentGender />
+
+    <button type="button" class="add-button" (click)="add(studentName.value, studentGender.value); studentName.value=''; studentGender.value=''">
+  Add student
+</button>
+</div>
