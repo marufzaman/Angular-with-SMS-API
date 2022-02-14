@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Student } from './student';
+import { Student } from '../model/student';
 
 // import { STUDENTS } from './mock-students';
 // import { MessageService } from './message.service';
@@ -37,8 +37,8 @@ export class StudentService {
   }
 
   /** POST: add a new student to the server */
-  addStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.studentsUrl, student, this.httpOptions);
+  addStudent(student: any): Observable<Student> {
+    return this.http.post<Student>(this.studentsUrl, student);
     // .pipe(
     //   catchError(this.handleError<Student>('addStudent'))
     // );
@@ -68,11 +68,11 @@ export class StudentService {
     // );
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
+  // private handleError<T>(operation = 'operation', result?: T) {
+  //   return (error: any): Observable<T> => {
+  //     console.error(error);
+  //     // Let the app keep running by returning an empty result.
+  //     return of(result as T);
+  //   };
+  // }
 }

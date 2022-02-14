@@ -1,14 +1,20 @@
 <div class="container-fluid" *ngIf="student">
 
-    <h4>{{student.name | uppercase}} Details</h4>
-    <div>ID# {{student.id}}</div>
+    <h5>{{student.name | uppercase}}</h5>
     <div>
         <label for="student-name">Name: </label>
-        <input id="student-name" [(ngModel)]="student.name" placeholder="name">
+        <input id="student-name" [(ngModel)]="student.name" placeholder="Enter Name">
     </div>
     <div>
-        <label for="student-gender">Gender: </label>
-        <input id="student-gender" [(ngModel)]="student.gender" placeholder="gender">
+      <label for="student-gender">Gender:</label>
+      <select name="gender" id="student-gender"
+            id="student-gender"
+            [(ngModel)]="student.gender"
+            placeholder="Select Gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+      </select>
     </div>
     <button type="button" (click)="goBack()">go back</button>
     <button type="button" (click)="save()">save</button>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../student';
-import { StudentService } from '../student.service';
+import { Student } from '../model/student';
+import { StudentService } from '../services/student.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-student-form',
@@ -10,22 +12,33 @@ import { StudentService } from '../student.service';
 export class StudentFormComponent implements OnInit {
   students: Student[] = [];
 
-  constructor(private studentService: StudentService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private studentService: StudentService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {}
 
+  goBack(): void {
+    this.location.back();
+  }
+
   add(newStudent: any): void {
-    console.log(newStudent);
-    // newStudent = newStudent.trim();
+    // console.log(newStudent);
+    newStudent.name = newStudent.name.trim();
+    newStudent.gender = newStudent.gender.trim();
     if (!newStudent) {
       return;
     }
-    console.log(newStudent);
+    // console.log(newStudent);
     this.studentService
-      .addStudent({ newStudent } as unknown as Student)
+      .addStudent(newStudent)
       .subscribe((student) => {
-        console.log(student);
-        this.students.push(student);
+        // console.log(student);
+        this.students.push(student)
+        alert("New Student!\n"+newStudent.name+" Added!")
+        this.goBack()
       });
   }
 }

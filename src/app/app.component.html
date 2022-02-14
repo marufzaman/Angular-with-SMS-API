@@ -1,8 +1,10 @@
 <div class="contaier-fluid">
-    <h1>{{title}}</h1>
-    <nav>
-        <a routerLink="/dashboard">Dashboard</a>
-        <a routerLink="/students">Students</a>
-    </nav>
+    <h1 style="text-align: center">{{title}}</h1>
+    <div class="nav nav-tabs" role="tablist">
+        <a routerLink="/dashboard" class="nav-item nav-link active" data-toggle="tab">Dashboard</a>
+        <a routerLink="/students" class="nav-item nav-link" data-toggle="tab">Students</a>
+        <a routerLink="/students" class="nav-item nav-link" data-toggle="tab">Departments</a>
+        <a routerLink="/students" class="nav-item nav-link" data-toggle="tab">Courses</a>
+    </div>
     <router-outlet></router-outlet>
 </div>

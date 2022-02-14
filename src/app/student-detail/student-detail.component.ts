@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Student } from '../student';
-import { StudentService } from '../student.service';
+import { Student } from '../model/student';
+import { StudentService } from '../services/student.service';
 
 
 @Component({
@@ -27,7 +27,8 @@ export class StudentDetailComponent implements OnInit {
   getStudent(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
     this.studentService.getStudent(id)
-      .subscribe(student => this.student = student);
+      .subscribe(student =>
+        this.student = student);
   }
 
   goBack(): void {
@@ -36,8 +37,10 @@ export class StudentDetailComponent implements OnInit {
 
   save(): void {
     if (this.student) {
-      this.studentService.updateStudent(this.student)
-        .subscribe(() => this.goBack());
+      if(confirm("Update?")) {
+              this.studentService.updateStudent(this.student)
+                .subscribe(() => this.goBack());
+      }
     }
   }
 }

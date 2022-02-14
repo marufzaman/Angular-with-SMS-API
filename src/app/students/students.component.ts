@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Student } from '../student';
-import { StudentService } from '../student.service';
+import { Student } from '../model/student';
+import { StudentService } from '../services/student.service';
 
 @Component({
   selector: 'app-students',
@@ -24,8 +24,10 @@ export class StudentsComponent implements OnInit {
   }
 
   delete(student: Student): void {
-    this.students = this.students.filter(h => h !== student);
-    this.studentService.deleteStudent(student.id).subscribe();
+    if(confirm('DELETE '+student.name+'?')){
+      this.students = this.students.filter(s => s !== student);
+      this.studentService.deleteStudent(student.id).subscribe();
+    }
   }
 
 }

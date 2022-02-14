@@ -1,22 +1,21 @@
 <div class="container-fluid">
-  <div class="row">
-    <h4 class="col">Student List</h4>
-    <a routerLink="/form/" class="col">Add Student</a>
-  </div>
+    <div class="d-flex justify-content-around col-10">
+        <h4 >Student List</h4>
+        <a routerLink="/form/" class="add-button">Add Student</a>
+    </div>
 
-  <ul class="students">
-    <li *ngFor="let student of students">
-      <a routerLink="/detail/{{ student.id }}">
-        <span class="badge">{{ student.id }}</span> {{ student.name }}
-      </a>
-      <button
-        type="button"
-        class="delete"
-        title="delete student"
-        (click)="delete(student)"
-      >
-        x
-      </button>
-    </li>
-  </ul>
+    <ul class="students">
+        <li *ngFor="let student of students" class="d-flex justify-content-start align-items-center">
+            <a routerLink="/detail/{{ student.id }}">
+                <span class="badge">
+                  {{ student.id }}
+                </span>
+              {{ student.name }}
+            </a>
+            <button type="button"
+                    class="btn btn-outline-danger"
+                    title="DELETE"
+                    (click)="delete(student)">X</button>
+        </li>
+    </ul>
 </div>
