@@ -7,11 +7,11 @@ import { StudentService } from '../services/student.service';
 
 
 @Component({
-  selector: 'app-student-detail',
-  templateUrl: './student-detail.component.html',
-  styleUrls: ['./student-detail.component.css']
+  selector: 'app-student-view',
+  templateUrl: './student-view.component.html',
+  styleUrls: ['./student-view.component.css']
 })
-export class StudentDetailComponent implements OnInit {
+export class StudentViewComponent implements OnInit {
   student: Student | undefined;
 
   constructor(
@@ -33,14 +33,5 @@ export class StudentDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
-  }
-
-  save(): void {
-    if (this.student) {
-      if(confirm("Update?")) {
-              this.studentService.updateStudent(this.student)
-                .subscribe(() => this.goBack());
-      }
-    }
   }
 }

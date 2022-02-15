@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { StudentEditComponent } from './student-edit/student-edit.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsComponent } from './students/students.component';
 
@@ -14,8 +14,8 @@ import { StudentsComponent } from './students/students.component';
     AppComponent,
     StudentsComponent,
     StudentFormComponent,
-    StudentDetailComponent,
-    DashboardComponent,
+    StudentEditComponent,
+    DashboardComponent
   ],
   imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule],
   providers: [],

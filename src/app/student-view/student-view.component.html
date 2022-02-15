@@ -1,0 +1,15 @@
+<div class="container-fluid" *ngIf="student">
+
+    <h5>{{student.name | uppercase}}</h5>
+    <div>
+        <label for="student-name">Name: {{student.name}}</label>
+    </div>
+    <div>
+        <label for="student-gender">Gender: {{student.gender}}</label>
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
+    <a routerLink="/view/{{ student.id }}" class="btn btn-outline-success">
+      View
+    </a>
+
+</div>

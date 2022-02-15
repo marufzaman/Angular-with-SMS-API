@@ -1,24 +1,35 @@
 <div class="row justify-content-lg-center">
     <div class="d-flex justify-content-around col-10">
-        <h4 >Student List</h4>
+        <h4>Student List</h4>
         <a routerLink="/form/" class="add-button">Add Student</a>
     </div>
-
-    <ul class="col-7">
-        <li *ngFor="let student of students" class="d-flex justify-content-start align-items-center">
-            <a routerLink="/detail/{{ student.id }}"
-            class="btn btn-secondary btn-md btn-block m-1 text-white d-flex justify-content-start align-items-centert">
-                <span class="badge">
-                  {{ student.id }}
-                </span>
-              {{ student.name }}
-            </a>
-            <button type="button"
-                    class="btn btn-outline-danger delete" aria-label="Delete"
-                    title="DELETE"
-                    (click)="delete(student)">
-              <span aria-hidden="false">&times;</span>
-            </button>
-        </li>
-    </ul>
+    <br><br>
+    <table class="table table-hover col-7">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of students">
+                <th scope="row">{{ students.indexOf(student)+1+". " }}</th>
+                <td>{{ student.name }}</td>
+                <td>{{ student.gender }}</td>
+                <td>
+                    <a routerLink="/edit/{{ student.id }}" class="btn btn-outline-success">
+                    View
+                    </a>
+                    <a routerLink="/edit/{{ student.id }}" class="btn btn-outline-secondary">
+                    Edit
+                    </a>
+                    <button type="button" class="btn btn-outline-danger" title="DELETE" (click)="delete(student)">
+                    <span aria-hidden="false">&times;</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
