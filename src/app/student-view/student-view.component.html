@@ -29,12 +29,18 @@
     <button
       type="button"
       class="btn btn-warning px-3 mx-2"
+      data-bs-toggle="tooltip" data-bs-placement="top"
+      title="Go Back"
       (click)="goBack()">
       Go Back
     </button>
-    <a routerLink="/edit/{{ student.id }}" class="btn btn-outline-secondary mx-1">
-      Edit
-    </a>
+    <i
+      type="button"
+      class="btn btn-success bi bi-pencil-square"
+      style="cursor: pointer"
+      data-bs-toggle="tooltip" data-bs-placement="top"
+      title="EDIT"
+      routerLink="/edit/{{ student.id }}"></i>
   </div>
 
 </div>

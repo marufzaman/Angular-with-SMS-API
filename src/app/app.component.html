@@ -1,10 +1,43 @@
-<div class="contaier-fluid m-5">
+<div class="contaier-fluid">
     <h1 class="text-center m-5">{{title}}</h1>
-    <div class="nav nav-tabs" role="tablist">
-        <a routerLink="/dashboard" class="nav-item nav-link active" data-toggle="tab">Dashboard</a>
-        <a routerLink="/students" class="nav-item nav-link" data-toggle="tab">Students</a>
-        <a routerLink="/students" class="nav-item nav-link" data-toggle="tab">Departments</a>
-        <a routerLink="/students" class="nav-item nav-link" data-toggle="tab">Courses</a>
-    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">[SMS]</a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarColor02"
+                aria-controls="navbarColor02"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggle-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a routerLink="/dashboard" class="nav-link" data-toggle="collapse" title="Dashboard">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/students" class="nav-link" data-toggle="collapse" title="Student List">Students</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/students" class="nav-link" data-toggle="collapse" title="Department List">Departments</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/students" class="nav-link" data-toggle="collapse" title="Course List">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" title="About Us" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
     <router-outlet></router-outlet>
 </div>
+

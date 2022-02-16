@@ -28,17 +28,16 @@ export class StudentFormComponent implements OnInit {
     // console.log(newStudent);
     newStudent.name = newStudent.name.trim();
     newStudent.gender = newStudent.gender.trim();
-    if (!newStudent) {
-      return;
+    if (!newStudent.name || !newStudent.gender) {
+      return
     }
-    // console.log(newStudent);
-    this.studentService
+      this.studentService
       .addStudent(newStudent)
       .subscribe((student) => {
-        // console.log(student);
         this.students.push(student)
         alert("New Student!\n"+newStudent.name+" Added!")
         this.goBack()
       });
+
   }
 }

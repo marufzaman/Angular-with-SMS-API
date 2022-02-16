@@ -4,27 +4,75 @@
   <form #studentNew="ngForm" >
     <div class="form-group">
       <label for="name" class="font-weight-bold">Name:</label>
-      <input class="form-control" type="text" name="name" id="name" ngModel placeholder="Enter Name">
+      <input
+        class="form-control active"
+        type="text"
+        name="name"
+        id="name"
+        required minlength="1"
+        ngModel
+        #name="ngModel"
+        [ngClass]=
+          "{
+          'is-invalid':
+          name.errors &&
+          (name.touched || name.dirty),
+          'is-valid':name.valid}"
+        placeholder="Enter Name">
+      <div
+        class=
+          "alert alert-danger
+          invalid-feedback">
+        <div *ngIf="name.errors?.['required']">
+          *This Field is required.
+        </div>
+        <div *ngIf="name.errors?.['minlength']">
+          *This Field must not be empty.
+        </div>
+        </div>
     </div>
 
     <div class="form-group">
       <label for="gender" class="font-weight-bold">Gender:</label>
-      <select class="form-control" name="gender" id="gender" ngModel>
-        <option value="" disabled selected>Select Gender</option>
+      <select
+        class="form-control"
+        name="gender"
+        id="gender"
+        required minlength="4"
+        ngModel #gender="ngModel"
+        [ngClass]=
+          "{
+          'is-invalid':
+          gender.errors &&
+          (gender.touched || gender.dirty),
+          'is-valid':gender.valid}">
+        <option value=" " disabled selected>Select Gender</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Others">Others</option>
       </select>
+      <div
+        class=
+          "alert alert-danger
+          invalid-feedback">
+          <div *ngIf="gender.errors?.['required']">
+            *This Field is required.
+          </div>
+          <div *ngIf="gender.errors?.['minlength']">
+            *This Field must not be empty.
+          </div>
+      </div>
     </div>
 
     <div class="d-flex justify-content-center">
       <button
       type="button"
       class="btn btn-info font-bold px-3 mx-3"
+      [disabled]="studentNew.untouched || studentNew.invalid"
       (click)="add(studentNew.value); (studentNew)">
       Add Student
     </button>
-    <button class="btn btn-danger px-3 mx-3" (click)="goBack()">Cancel</button>
+    <button class="btn btn-danger px-3 mx-3 " (click)="goBack()">Cancel</button>
     </div>
   </form>
 </div>
