@@ -1,0 +1,63 @@
+<div class="container editDepartment">
+  <div class="row" *ngIf="depart">
+    <div class="col-sm-5 mx-auto">
+      <h4>Edit Details For: {{ depart.name | uppercase }}</h4>
+
+      <div
+        *ngIf="alert"
+        class="alert alert-primary alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>Hooray!</strong> Department updated successfully.
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+          (click)="closeAlert()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form
+        #departmentForm="ngForm"
+        (ngSubmit)="getEditedDepartmentData(depart.id, departmentForm.value)"
+        action=""
+      >
+        <input
+          ngModel
+          [(ngModel)]="depart.id"
+          class="departmentInput"
+          type="text"
+          name="id"
+          id="deptId"
+          placeholder="Department Id"
+        />
+        <br />
+        <input
+          ngModel
+          [(ngModel)]="depart.name"
+          class="departmentInput"
+          type="text"
+          name="name"
+          id="deptName"
+          placeholder="Department Name"
+        />
+        <br />
+        <div class="buttons row">
+          <div class="col-6">
+            <button type="submit" class="addOrUpdateDepartment">
+              Edit Department
+            </button>
+          </div>
+          <div class="col-6">
+            <button (click)="goBack()" type="button" class="goBack">
+              Go Back
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

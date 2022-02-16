@@ -1,5 +1,4 @@
-<br><br><br>
-<div class="row justify-content-lg-center">
+<br><div class="row justify-content-lg-center">
     <div class="d-flex justify-content-between col-6">
         <h4>Student List</h4>
         <a
@@ -10,7 +9,7 @@
         </a>
     </div>
 </div>
-<br><br>
+<br>
 <div class="row justify-content-lg-center">
   <table class="table table-hover col-6">
         <thead class="thead-dark">
@@ -27,24 +26,25 @@
                 <td>{{ student.name }}</td>
                 <td>{{ student.gender }}</td>
                 <td class="d-flex justify-content-center">
-                  <i
-                    class="bi bi-eye-fill text-primary m-1"
+                  <div class="text-primary border border-primary rounded-right m-1"
                     style="cursor: pointer"
                     data-bs-toggle="tooltip" data-bs-placement="top"
                     title="VIEW"
-                    routerLink="/view/{{ student.id }}"></i>
-                  <i
-                    class="bi bi-pencil-square text-success m-1"
+                    routerLink="/view/{{ student.id }}">
+                    <i class="bi bi-eye-fill m-1 "></i>
+                  </div>
+                  <div class="text-success border border-success rounded m-1"
                     style="cursor: pointer"
-                    data-bs-toggle="tooltip" data-bs-placement="top"
                     title="EDIT"
-                    routerLink="/edit/{{ student.id }}"></i>
-                  <i
-                    class="bi bi-trash text-danger m-1"
+                    routerLink="/edit/{{ student.id }}">
+                    <i class="bi bi-pencil-square m-1"></i>
+                  </div>
+                  <div class="text-danger border border-danger rounded-left m-1"
                     style="cursor: pointer"
-                    data-bs-toggle="tooltip" data-bs-placement="top"
                     title="DELETE"
-                    (click)="delete(student)"></i>
+                    (click)="delete(student)">
+                    <i class="bi bi-trash m-1"></i>
+                  </div>
                 </td>
             </tr>
             <tr *ngIf="even" class="table-secondary">
@@ -52,24 +52,24 @@
                 <td>{{ student.name }}</td>
                 <td>{{ student.gender }}</td>
                 <td class="d-flex justify-content-center">
-                  <i
-                    class="bi bi-eye-fill text-primary m-1"
+                  <div class="text-primary border border-primary rounded-right m-1"
                     style="cursor: pointer"
-                    data-bs-toggle="tooltip" data-bs-placement="top"
                     title="VIEW"
-                    routerLink="/view/{{ student.id }}"></i>
-                  <i
-                    class="bi bi-pencil-square text-success m-1"
+                    routerLink="/view/{{ student.id }}">
+                    <i class="bi bi-eye-fill m-1 "></i>
+                  </div>
+                  <div class="text-success border border-success rounded m-1"
                     style="cursor: pointer"
-                    data-bs-toggle="tooltip" data-bs-placement="top"
                     title="EDIT"
-                    routerLink="/edit/{{ student.id }}"></i>
-                  <i
-                    class="bi bi-trash text-danger m-1"
+                    routerLink="/edit/{{ student.id }}">
+                    <i class="bi bi-pencil-square m-1"></i>
+                  </div>
+                  <div class="text-danger border border-danger rounded-left m-1"
                     style="cursor: pointer"
-                    data-bs-toggle="tooltip" data-bs-placement="top"
                     title="DELETE"
-                    (click)="delete(student)"></i>
+                    (click)="delete(student)">
+                    <i class="bi bi-trash m-1"></i>
+                  </div>
                 </td>
             </tr>
         </tbody>

@@ -1,0 +1,232 @@
+<div class="container">
+  <div class="row mt-5 mb-4">
+    <div
+      class="col-12 m-auto d-flex align-items-center justify-content-between"
+    >
+      <div><h4>All Departments</h4></div>
+
+      <div>
+        <button
+          class="btn btn-danger"
+          style="border-radius: 2px"
+          routerLink="/department/addDepartment"
+        >
+          Add New Department
+        </button>
+      </div>
+
+      <!-- <div>{{ departments.length }} departments found.</div> -->
+    </div>
+  </div>
+
+  <div class="col-12">
+    <p class="text-right mb-2">
+      Total <strong>{{ departments.length }}</strong> departments found.
+    </p>
+  </div>
+
+  <!-- <div class="container department-list">
+  <div class="row bg-dark py-3 text-white">
+    <div class="id col-sm-2">
+      <p>Serial no.</p>
+    </div>
+    <div class="id col-sm-2">
+      <p>Id</p>
+    </div>
+    <div class="name col-sm-2">
+      <p>Department</p>
+    </div>
+    <div class="edit col-sm-2">
+      <p>Edit</p>
+    </div>
+    <div class="delete col-sm-2">
+      <p>Delete</p>
+    </div>
+    <div class="delete col-sm-2">
+      <p>View</p>
+    </div>
+  </div> -->
+
+  <!-- <div
+    *ngFor="let department of departments"
+    class="row data d-flex align-items-center"
+  >
+    <div class="id col-sm-2">
+      <p>{{ departments.indexOf(department) + 1 }}</p>
+    </div>
+    <div class="id col-sm-2">
+      <p># {{ department.id }}</p>
+    </div>
+    <div class="name col-sm-2">
+      <p>{{ department.name }}</p>
+    </div>
+    <div class="editOrDelete col-sm-2">
+      <a routerLink="/department/editDepartment/{{ department.id }}">Edit</a>
+    </div>
+    <div class="editOrDelete col-sm-2">
+      <a (click)="deleteDepartmentById(department.id)" class="bg-danger"
+        >Delete</a
+      >
+    </div>
+    <div class="editOrDelete col-sm-2">
+      <p>
+        <span class="material-icons"> visibility </span>
+      </p>
+    </div>
+  </div> -->
+
+  <!-- <div class="container"> -->
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- Alert Start  -->
+      <div
+        *ngIf="alert"
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>
+          {{ deleteDepartmentName }} Department Deleted successfully.</strong
+        >
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+          (click)="closeAlert()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- Aler End  -->
+
+      <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="col-sm-2">Serial</th>
+            <th scope="col" class="col-sm-2">Id</th>
+            <th scope="col" class="col-sm-3">Department Name</th>
+            <th scope="col" class="col-sm-3">Department Name</th>
+            <th scope="col" class="col-sm-2 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let department of departments">
+          <!-- Modal Start -->
+          <div
+            class="modal fade"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">
+                    Delete Department
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Do you want to delete {{ deleteDepartmentName }} department?
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    data-dismiss="modal"
+                    (click)="closeWarn()"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-dismiss="modal"
+                    (click)="deleteDepartmentById(deleteDepartmentId)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal End -->
+
+          <!-- <tr class="table-active" *ngIf="odd">
+            <th scope="row">{{ departments.indexOf(department) + 1 }}</th>
+            <td># {{ department.id }}</td>
+            <td>{{ department.name }}</td>
+            <td>{{ department.name }}</td>
+            <td class="d-flex align-items-center">
+              <span
+                class="editIcon material-icons mx-auto"
+                routerLink="/department/editDepartment/{{ department.id }}"
+              >
+                edit
+              </span>
+              <span
+                class="deleteIcon material-icons mx-auto"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+              >
+                delete
+              </span>
+              <span
+                class="visibleIcon material-icons mx-auto"
+                routerLink="/department/view/{{ department.id }}"
+              >
+                visibility
+              </span>
+            </td>
+          </tr> -->
+          <tr class="table-light">
+            <th scope="row">{{ departments.indexOf(department) + 1 }}</th>
+            <td># {{ department.id }}</td>
+            <td>{{ department.name }}</td>
+            <td>{{ department.name }}</td>
+            <td class="d-flex align-items-center">
+              <span
+                class="editIcon material-icons mx-auto"
+                routerLink="/department/editDepartment/{{ department.id }}"
+              >
+                edit
+              </span>
+              <span
+                class="deleteIcon material-icons mx-auto"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+                (click)="setDeleteId(department.name, department.id)"
+              >
+                delete
+              </span>
+              <span
+                class="visibleIcon material-icons mx-auto"
+                routerLink="/department/view/{{ department.id }}"
+              >
+                visibility
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<!-- <button
+  type="button"
+  class="btn btn-primary"
+  data-toggle="modal"
+  data-target="#exampleModalCenter"
+>
+  Launch demo modal
+</button> -->

@@ -10,6 +10,14 @@ import { StudentViewComponent } from './student-view/student-view.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsComponent } from './students/students.component';
 
+import { DepartmentComponent } from './department/department.component';
+import { HomeComponent } from './home/home.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { CounterComponent } from './counter/counter.component';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
+import { ViewDepartmentComponent } from './view-department/view-department.component';
+
+
 import { ListCouresComponent } from './list-coures/list-coures.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { EditcourseComponent } from './editcourse/editcourse.component';
@@ -27,6 +35,15 @@ import { EditresultComponent } from './editresult/editresult.component';
     StudentFormComponent,
     StudentEditComponent,
     DashboardComponent,
+    StudentViewComponent,
+
+
+    DepartmentComponent,
+    HomeComponent,
+    AddDepartmentComponent,
+    CounterComponent,
+    EditDepartmentComponent,
+    ViewDepartmentComponent,
     StudentViewComponent,
 
     ListCouresComponent,
