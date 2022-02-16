@@ -10,15 +10,23 @@ import { StudentViewComponent } from './student-view/student-view.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsComponent } from './students/students.component';
 
+import { DepartmentComponent } from './department/department.component';
+import { HomeComponent } from './home/home.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { CounterComponent } from './counter/counter.component';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
+import { ViewDepartmentComponent } from './view-department/view-department.component';
 
 
 import { ListCouresComponent } from './list-coures/list-coures.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
-
 import { EditcourseComponent } from './editcourse/editcourse.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ResultlistComponent } from './resultlist/resultlist.component';
+import { AddresultComponent } from './addresult/addresult.component';
+import { EditresultComponent } from './editresult/editresult.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +37,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     StudentViewComponent,
 
+
+    DepartmentComponent,
+    HomeComponent,
+    AddDepartmentComponent,
+    CounterComponent,
+    EditDepartmentComponent,
+    ViewDepartmentComponent,
+    StudentViewComponent,
+
     ListCouresComponent,
     AddcourseComponent,
     EditcourseComponent,
     PageNotFoundComponent,
+
+    ResultlistComponent,
+    AddresultComponent,
+    EditresultComponent,
+
+
   ],
-  imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule, BrowserAnimationsModule
+  imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule, BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,77 @@
+
+
+<div class="container">
+
+  <div class="d-flex align-items-center justify-content-end py-4">
+    <div>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        routerLink="/result/addresult"
+      >
+        <span class="material-icons"> add </span>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-5 mx-auto" style="margin-top: 100px">
+      <!-- alert start -->
+      <div
+        class="alert alert-success alert-dismissible fade show"
+        *ngIf="alert"
+        role="alert"
+      >
+        <strong>Hooray!</strong> Department Edited successfully.
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          (click)="closeAlert()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- alert end -->
+      <form
+        #resultEditForm="ngForm"
+        (ngSubmit)="onSubmit(resultEditForm.value)"
+      >
+        <div class="form-group">
+          <h2>Edit ID {{ results?.id }} Status</h2>
+
+          <!-- <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        value="{{ results.id+ }}"
+        name="id"
+        ngModel
+        placeholder="Enter your Id"
+      /> -->
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Enter Status</label>
+          <input
+            ngModel
+            type="text"
+            name="status"
+            class="form-control"
+            id="formGroupExampleInput"
+          [ngModel]="results?.status" (ngModelChange)="results.status"
+          />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" type="submit">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="">
+  <form #resultForm="ngForm" (ngSubmit)="onSubmit(resultForm.value)">
+    <input type="number" name="id" ngModel placeholder="Enter your Id" />
+    <input type="text" ngModel name="status" placeholder="Enter your status" />
+    <button type="submit">SUBMIT</button>
+  </form>
+</div> -->

@@ -1,0 +1,36 @@
+.addOrUpdateDepartment {
+  padding: 12px 10px;
+  width: 100%;
+  background-color: rgb(23, 77, 121);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.departmentInput {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #ddd;
+  padding: 12px 30px;
+  margin: 15px 0;
+}
+
+.goBack {
+  padding: 12px 10px;
+  width: 100%;
+  background-color: rgb(110, 75, 151);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.addDepartment {
+  margin-top: 60px;
+}
