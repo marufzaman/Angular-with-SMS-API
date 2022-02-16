@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 })
 export class AddcourseComponent implements OnInit {
   //data: any;
+  alert: any;
   constructor(
     private _courseService: CourseListService,
     private location: Location
@@ -22,12 +23,19 @@ export class AddcourseComponent implements OnInit {
   addNewCourse(data: any) {
     this._courseService.addCourse(data).subscribe((result: any) => {
       console.warn(result);
-      alert('Course Added successfully');
-      this.goBack();
+      this.showAlert() ;
     });
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  showAlert() {
+    this.alert = true;
+  }
+  closeAlert() {
+    this.alert = false;
+    this.goBack();
   }
 }

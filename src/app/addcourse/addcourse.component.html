@@ -4,9 +4,26 @@
       class="col-lg-6 col-md-6 col-sm-6 container justify-center-center card"
     >
       <h1 class="text-center mt-2">Add Course</h1>
-      <div class="card-body">
+
+      <div
+        class="alert alert-success alert-dismissible fade show"
+        *ngIf="alert"
+        role="alert"
+      >
+        <strong>Course</strong>  added successfully.
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          (click)="closeAlert()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="card-body ">
         <form #courseForm="ngForm" (ngSubmit)="addNewCourse(courseForm.value)">
           <div class="form-group mb-2">
+
             <label>Course Name</label>
             <input
               type="text"
@@ -17,15 +34,16 @@
               required
               minlength="4"
               maxlength="30"
+
             />
           </div>
 
-          <div class="footer-body">
+          <div class="footer-body mt-4">
             <button type="submit" class="btn btn-primary">Submit</button>
             <button
               type="button"
               class="btn btn-info px-3 mx-2"
-              (click)="goBack()"
+
             >
               Go Back
             </button>
