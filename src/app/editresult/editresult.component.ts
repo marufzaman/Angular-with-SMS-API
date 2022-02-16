@@ -32,7 +32,6 @@ export class EditresultComponent implements OnInit {
   }
   onSubmit(data: NgForm) {
     this.resultservice.updateResult(this.results.id, data).subscribe((response) => {
-      alert('Updated successfully.');
       this.showAlert();
 
       console.log(response);
