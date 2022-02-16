@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <a class="btn btn-primary btn-sm mb-3" routerLink="/courses/addcourse"
+        >Add Course
+      </a>
+    </div>
+  </div>
+
+  <!-- course table div starts-->
+  <div class="row">
+    <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Course Id</th>
+          <th scope="col">Course Name</th>
+          <th scope="col">Course Update</th>
+          <th scope="col">Course Delete</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let courses of courseList">
+        <tr>
+          <th scope="row">{{ courseList.indexOf(courses) + 1 }}</th>
+          <td>{{ courses.courseId }}</td>
+          <td>{{ courses.courseName }}</td>
+          <td>
+            <!--
+                <a
+              type="button"
+              class="btn btn-primary"
+              routerLink="/courses/editcourse/{{ courses.courseId }}"
+              >Update
+            </a>
+            -->
+
+            <i
+              type="button"
+              class="fa-solid fa-pen-to-square"
+              routerLink="/courses/editcourse/{{ courses.courseId }}"
+            ></i>
+          </td>
+          <td>
+            <!--
+              <a
+              (click)="deleteCourse(courses.courseId)"
+              type="button"
+              style="color: #fff"
+              class="btn btn-danger"
+            >
+              Delete
+            </a>
+
+            -->
+
+            <i
+              type="button"
+              class="fa-solid fa-trash-can"
+              (click)="deleteCourse(courses.courseId)"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- course table div ends-->
+</div>

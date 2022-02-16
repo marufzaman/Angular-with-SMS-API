@@ -10,6 +10,16 @@ import { StudentViewComponent } from './student-view/student-view.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsComponent } from './students/students.component';
 
+
+
+import { ListCouresComponent } from './list-coures/list-coures.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
+
+import { EditcourseComponent } from './editcourse/editcourse.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +27,15 @@ import { StudentsComponent } from './students/students.component';
     StudentFormComponent,
     StudentEditComponent,
     DashboardComponent,
-    StudentViewComponent
+    StudentViewComponent,
+
+    ListCouresComponent,
+    AddcourseComponent,
+    EditcourseComponent,
+    PageNotFoundComponent,
   ],
-  imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule],
+  imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule, BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
