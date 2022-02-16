@@ -9,6 +9,10 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
 import { EditcourseComponent } from './editcourse/editcourse.component';
 import { ListCouresComponent } from './list-coures/list-coures.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddresultComponent } from './addresult/addresult.component';
+import { EditresultComponent } from './editresult/editresult.component';
+import { ResultlistComponent } from './resultlist/resultlist.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -21,6 +25,9 @@ const routes: Routes = [
   { path: 'courses/addcourse', component: AddcourseComponent },
   { path: 'courses/editcourse/:id', component: EditcourseComponent },
   // {path:'**',component: PageNotFoundComponent}
+  { path: 'result', component: ResultlistComponent },
+  { path: 'result/addresult', component: AddresultComponent },
+  { path: 'result/edit/:id', component: EditresultComponent },
 ];
 
 @NgModule({
