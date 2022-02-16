@@ -1,7 +1,7 @@
 export class Resultclass{
-    id :any ;
-    status : any; 
-  
+    id : number ;
+    status : string;
 
-    
+
+
 }

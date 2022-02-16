@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ResulthandleService } from '../services/resulthandle.service';
 import { Location } from '@angular/common';
+import {Result} from "../model/result";
+import {Resultclass} from "../model/resultclass";
 
 @Component({
   selector: 'app-editresult',
@@ -10,11 +12,11 @@ import { Location } from '@angular/common';
   styleUrls: ['./editresult.component.css'],
 })
 export class EditresultComponent implements OnInit {
-  results: any;
+  results: Resultclass;
   str: string = '';
   constructor(
     public route: ActivatedRoute,
-    private result: ResulthandleService,
+    private resultservice: ResulthandleService,
     private location: Location
   ) {}
   alert: boolean = false;
@@ -23,13 +25,13 @@ export class EditresultComponent implements OnInit {
   }
   getData() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.result.getUserById(id).subscribe((data) => {
+    this.resultservice.getUserById(id).subscribe((data) => {
       this.results = data;
       console.log(this.results);
     });
   }
   onSubmit(data: NgForm) {
-    this.result.updateResult(this.results.id, data).subscribe((response) => {
+    this.resultservice.updateResult(this.results.id, data).subscribe((response) => {
       alert('Updated successfully.');
       this.showAlert();
 

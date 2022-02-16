@@ -23,8 +23,8 @@ export class ResulthandleService {
   deleteResult(id: any) {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
-  getUserById(id: any) {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getUserById(id: any) : Observable<Resultclass>{
+    return this.http.get<Resultclass>(`${this.baseUrl}/${id}`);
   }
   updateResult(id: any, data: any) {
     return this.http.put(`${this.editUrl}/${id}`, data);
