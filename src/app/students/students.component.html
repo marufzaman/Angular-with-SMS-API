@@ -1,92 +1,107 @@
 <div class="container">
-  <div class="row mt-5 mb-4">
-    <div class="col-12 mx-auto mb-3 d-flex align-items-center justify-content-between">
-      <div>
-        <h4>Student List</h4>
-      </div>
-      <div>
-        <a
-          routerLink="/form/"
-          class="btn btn-danger"
-          title="Add New Student">
-          Add New Student
-        </a>
-      </div>
+    <div class="row mt-5 mb-4">
+        <div class="col-12 mx-auto mb-3 d-flex align-items-center justify-content-between">
+            <div>
+                <h4>Student List</h4>
+            </div>
+            <div>
+                <a routerLink="/form/" class="btn btn-danger" title="Add New Student">
+                  Add New Student
+                </a>
+            </div>
+        </div>
+
+
+        <div class="col-12 mx-auto mb-3">
+            <p class="text-right mb-2">
+                Total Students: <strong>{{ students.length }}</strong>
+            </p>
+        </div>
+
+        <!-- Alert Start  -->
+        <div *ngIf="alert" class="col-12 mx-auto mb-3 alert alert-success alert-dismissible fade show" role="alert">
+            <strong>
+        Student: {{ deleteStudentName}}, Deleted Successfully!
+      </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        </div>
+        <!-- Aler End  -->
+
+        <div class="col-12 mx-auto mb-3 d-flex align-items-center">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="col-1">#</th>
+                        <th class="col-5">Name</th>
+                        <th class="col-3">Gender</th>
+                        <th class="col-3 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let student of students; let even=even; let odd=odd;">
+                    <!-- Modal Start -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                        Delete Student
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want to delete {{ deleteStudentName }}?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal" (click)="closeWarn()">
+                                      Cancel
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="delete(deleteStudentID)">
+                                      Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal End -->
+
+                    <tr *ngIf="odd" class="table-light">
+                        <th scope="row">{{ students.indexOf(student)+1+". " }}</th>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.gender }}</td>
+                        <td class="d-flex justify-content-center">
+                            <div class="text-primary border border-primary rounded-right m-1" style="cursor: pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="VIEW" routerLink="/view/{{ student.id }}">
+                                <i class="bi bi-eye-fill m-1 "></i>
+                            </div>
+                            <div class="text-success border border-success rounded m-1" style="cursor: pointer" title="EDIT" routerLink="/edit/{{ student.id }}">
+                                <i class="bi bi-pencil-square m-1"></i>
+                            </div>
+                            <div class="text-danger border border-danger rounded-left m-1" data-toggle="modal" data-target="#exampleModalCenter" style="cursor: pointer" title="DELETE" (click)="setDeleteStudentProfile(student)">
+                                <i class="bi bi-trash m-1"></i>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr *ngIf="even" class="table-secondary">
+                        <th scope="row">{{ students.indexOf(student)+1+". " }}</th>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.gender }}</td>
+                        <td class="d-flex justify-content-center">
+                            <div class="text-primary border border-primary rounded-right m-1" style="cursor: pointer" title="VIEW" routerLink="/view/{{ student.id }}">
+                                <i class="bi bi-eye-fill m-1 "></i>
+                            </div>
+                            <div class="text-success border border-success rounded m-1" style="cursor: pointer" title="EDIT" routerLink="/edit/{{ student.id }}">
+                                <i class="bi bi-pencil-square m-1"></i>
+                            </div>
+                            <div class="text-danger border border-danger rounded-left m-1" data-toggle="modal" data-target="#exampleModalCenter" style="cursor: pointer" title="DELETE" (click)="setDeleteStudentProfile(student)">
+                                <i class="bi bi-trash m-1"></i>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-    <div class="col-12 mx-auto mb-3">
-    <p class="text-right mb-2">
-      Total Students: <strong>{{ students.length }}</strong>
-    </p>
-  </div>
-
-    <div class="col-12 mx-auto mb-3 d-flex align-items-center">
-
-        <table class="table table-hover">
-              <thead class="thead-dark">
-                  <tr>
-                      <th class="col-1">#</th>
-                      <th class="col-5">Name</th>
-                      <th class="col-3">Gender</th>
-                      <th class="col-3 text-center">Action</th>
-                  </tr>
-              </thead>
-              <tbody *ngFor="let student of students; let even=even; let odd=odd;">
-                  <tr *ngIf="odd" class="table-light">
-                      <th scope="row">{{ students.indexOf(student)+1+". " }}</th>
-                      <td>{{ student.name }}</td>
-                      <td>{{ student.gender }}</td>
-                      <td class="d-flex justify-content-center">
-                        <div class="text-primary border border-primary rounded-right m-1"
-                          style="cursor: pointer"
-                          data-bs-toggle="tooltip" data-bs-placement="top"
-                          title="VIEW"
-                          routerLink="/view/{{ student.id }}">
-                          <i class="bi bi-eye-fill m-1 "></i>
-                        </div>
-                        <div class="text-success border border-success rounded m-1"
-                          style="cursor: pointer"
-                          title="EDIT"
-                          routerLink="/edit/{{ student.id }}">
-                          <i class="bi bi-pencil-square m-1"></i>
-                        </div>
-                        <div class="text-danger border border-danger rounded-left m-1"
-                          style="cursor: pointer"
-                          title="DELETE"
-                          (click)="delete(student)">
-                          <i class="bi bi-trash m-1"></i>
-                        </div>
-                      </td>
-                  </tr>
-                  <tr *ngIf="even" class="table-secondary">
-                      <th scope="row">{{ students.indexOf(student)+1+". " }}</th>
-                      <td>{{ student.name }}</td>
-                      <td>{{ student.gender }}</td>
-                      <td class="d-flex justify-content-center">
-                        <div class="text-primary border border-primary rounded-right m-1"
-                          style="cursor: pointer"
-                          title="VIEW"
-                          routerLink="/view/{{ student.id }}">
-                          <i class="bi bi-eye-fill m-1 "></i>
-                        </div>
-                        <div class="text-success border border-success rounded m-1"
-                          style="cursor: pointer"
-                          title="EDIT"
-                          routerLink="/edit/{{ student.id }}">
-                          <i class="bi bi-pencil-square m-1"></i>
-                        </div>
-                        <div class="text-danger border border-danger rounded-left m-1"
-                          style="cursor: pointer"
-                          title="DELETE"
-                          (click)="delete(student)">
-                          <i class="bi bi-trash m-1"></i>
-                        </div>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
-
-      </div>
-  </div>
-
 </div>
