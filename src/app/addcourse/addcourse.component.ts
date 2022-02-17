@@ -23,7 +23,7 @@ export class AddcourseComponent implements OnInit {
   addNewCourse(data: any) {
     this._courseService.addCourse(data).subscribe((result: any) => {
       console.warn(result);
-      this.showAlert() ;
+      this.showAlert();
     });
   }
 

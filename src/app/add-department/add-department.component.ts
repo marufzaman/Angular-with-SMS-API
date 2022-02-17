@@ -20,6 +20,9 @@ export class AddDepartmentComponent implements OnInit {
   addDepartment(data: NgForm) {
     this.department.addDepartment(data).subscribe((response) => {
       this.showAlert();
+      setTimeout(() => {
+        this.closeAlert();
+      }, 2000);
     });
   }
 
@@ -32,6 +35,6 @@ export class AddDepartmentComponent implements OnInit {
   }
   closeAlert() {
     this.alert = false;
-    this.location.back();
+    // this.location.back();
   }
 }
