@@ -50,7 +50,7 @@ export class StudentService {
       `${this.studentsUrl}/${student.id}` +
       '?name=' +
       `${student.name}` +
-      '&gender' +
+      '&gender=' +
       `${student.gender}`;
     return this.http.put(url, student);
     // .pipe(
@@ -68,11 +68,4 @@ export class StudentService {
     // );
   }
 
-  // private handleError<T>(operation = 'operation', result?: T) {
-  //   return (error: any): Observable<T> => {
-  //     console.error(error);
-  //     // Let the app keep running by returning an empty result.
-  //     return of(result as T);
-  //   };
-  // }
 }

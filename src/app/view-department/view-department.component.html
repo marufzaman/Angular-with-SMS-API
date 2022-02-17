@@ -6,7 +6,9 @@
       *ngIf="departmentInfo"
     >
       <div class="card text-white mb-3">
-        <div class="card-header card-head">Department Information</div>
+        <div class="card-header card-head">
+          <h5 class="m-0 py-2">Department Information</h5>
+        </div>
         <div class="card-body">
           <h4 class="dept-id text-dark">
             Department Name: {{ departmentInfo.name }}
@@ -29,8 +31,8 @@
         class="btn btn-danger w-100 d-flex align-items-center justify-content-center"
         routerLink="/department"
       >
-        <span class="material-icons mr-2"> arrow_back </span> Back to Department
-        list
+        <span class="material-icons mr-2 py-2"> arrow_back </span> Back to
+        Department list
       </button>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <div class="container editDepartment">
   <div class="row" *ngIf="depart">
-    <div class="col-sm-5 mx-auto">
+    <div class="col-xs-8 col-sm-8 col-md-6 col-lg-5 mx-auto">
       <h4>Edit Details For: {{ depart.name | uppercase }}</h4>
 
       <div
@@ -47,13 +47,18 @@
         <br />
         <div class="buttons row">
           <div class="col-6">
-            <button type="submit" class="addOrUpdateDepartment">
-              Edit Department
+            <button
+              (click)="goBack()"
+              type="button"
+              class="goBack d-flex align-items-center justify-content-center"
+            >
+              <span class="material-icons mr-2"> arrow_back </span>
+              Go Back
             </button>
           </div>
           <div class="col-6">
-            <button (click)="goBack()" type="button" class="goBack">
-              Go Back
+            <button type="submit" class="addOrUpdateDepartment">
+              Edit Department
             </button>
           </div>
         </div>
