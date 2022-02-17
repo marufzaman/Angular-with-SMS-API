@@ -40,6 +40,7 @@ export class StudentsComponent implements OnInit {
       this.showAlert();
       setTimeout(() => {
         this.closeAlert();
+        this.deleteStudentName = "";
       }, (1000*timeOutSet));
       this.deleteStudentID = -1;
     });
@@ -63,6 +64,7 @@ export class StudentsComponent implements OnInit {
   }
 
   setDeleteStudentProfile(student: Student) {
+    this.alert = false;
     console.log(student);
     this.deleteStudentID = student.id;
     this.deleteStudentName = student.name;
