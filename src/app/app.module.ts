@@ -10,6 +10,14 @@ import { StudentViewComponent } from './student-view/student-view.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsComponent } from './students/students.component';
 
+import { DepartmentComponent } from './department/department.component';
+import { HomeComponent } from './home/home.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { CounterComponent } from './counter/counter.component';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
+import { ViewDepartmentComponent } from './view-department/view-department.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +25,15 @@ import { StudentsComponent } from './students/students.component';
     StudentFormComponent,
     StudentEditComponent,
     DashboardComponent,
-    StudentViewComponent
+    StudentViewComponent,
+
+
+    DepartmentComponent,
+    HomeComponent,
+    AddDepartmentComponent,
+    CounterComponent,
+    EditDepartmentComponent,
+    ViewDepartmentComponent,
   ],
   imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule],
   providers: [],

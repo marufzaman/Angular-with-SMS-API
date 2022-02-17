@@ -1,0 +1,55 @@
+p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.editOrDelete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editOrDelete a {
+  padding: 5px 25px;
+  background-color: rgb(72, 122, 72);
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.data {
+  margin: 10px 0;
+  background-color: #d9d9d9;
+  padding: 5px 0px;
+  border-radius: 3px;
+}
+
+.department-list {
+  margin-top: 30px;
+  border-radius: 2px;
+}
+
+.editIcon {
+  border: 1px solid #0f2c67;
+  color: #0f2c67;
+  padding: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.deleteIcon {
+  border: 1px solid #cd1818;
+  color: #cd1818;
+  padding: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.visibleIcon {
+  border: 1px solid #333;
+  color: #333;
+  padding: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+}
