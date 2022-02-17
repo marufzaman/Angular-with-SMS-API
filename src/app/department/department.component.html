@@ -7,10 +7,11 @@
 
       <div>
         <button
-          class="btn btn-danger"
+          class="btn btn-danger d-flex align-items-center justify-content-center"
           style="border-radius: 2px"
           routerLink="/department/addDepartment"
         >
+          <span class="material-icons mr-2 py-2"> add</span>
           Add New Department
         </button>
       </div>
@@ -109,7 +110,9 @@
             <th scope="col" class="col-sm-2 text-center">Actions</th>
           </tr>
         </thead>
-        <tbody *ngFor="let department of departments">
+        <tbody
+          *ngFor="let department of departments; let even = even; let odd = odd"
+        >
           <!-- Modal Start -->
           <div
             class="modal fade"
@@ -160,7 +163,7 @@
           </div>
           <!-- Modal End -->
 
-          <!-- <tr class="table-active" *ngIf="odd">
+          <tr class="table-active" *ngIf="odd">
             <th scope="row">{{ departments.indexOf(department) + 1 }}</th>
             <td># {{ department.id }}</td>
             <td>{{ department.name }}</td>
@@ -186,8 +189,8 @@
                 visibility
               </span>
             </td>
-          </tr> -->
-          <tr class="table-light">
+          </tr>
+          <tr class="table-light" *ngIf="even">
             <th scope="row">{{ departments.indexOf(department) + 1 }}</th>
             <td># {{ department.id }}</td>
             <td>{{ department.name }}</td>

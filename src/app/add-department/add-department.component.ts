@@ -18,6 +18,8 @@ export class AddDepartmentComponent implements OnInit {
   ngOnInit(): void {}
 
   addDepartment(data: NgForm) {
+    console.log(data.name);
+    console.log(data);
     this.department.addDepartment(data).subscribe((response) => {
       this.showAlert();
       setTimeout(() => {
@@ -35,6 +37,5 @@ export class AddDepartmentComponent implements OnInit {
   }
   closeAlert() {
     this.alert = false;
-    // this.location.back();
   }
 }

@@ -32,24 +32,24 @@ p {
 }
 
 .editIcon {
-  border: 1px solid #0f2c67;
+  border: 2px solid #0f2c67;
   color: #0f2c67;
-  padding: 2px;
+  padding: 3px;
   border-radius: 2px;
   cursor: pointer;
 }
 .deleteIcon {
-  border: 1px solid #cd1818;
+  border: 2px solid #cd1818;
   color: #cd1818;
-  padding: 2px;
+  padding: 3px;
   border-radius: 2px;
   cursor: pointer;
 }
 
 .visibleIcon {
-  border: 1px solid #333;
+  border: 2px solid #333;
   color: #333;
-  padding: 2px;
+  padding: 3px;
   border-radius: 2px;
   cursor: pointer;
 }
