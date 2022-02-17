@@ -19,6 +19,7 @@ export class StudentsComponent implements OnInit {
   deleteStudentID: Number = -1;
   deleteStudentName: String = "";
 
+
   ngOnInit(): void {
     this.getStudents();
   }
@@ -31,11 +32,15 @@ export class StudentsComponent implements OnInit {
   }
 
   delete(id: any): void {
+    const timeOutSet = 15;
     // this.students = this.students.filter(s => s !== student);
     this.studentService.deleteStudent(id).subscribe((response) => {
       this.getStudents();
       this.closeWarn();
       this.showAlert();
+      setTimeout(() => {
+        this.closeAlert();
+      }, (1000*timeOutSet));
       this.deleteStudentID = -1;
     });
   }
