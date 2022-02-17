@@ -10,6 +10,7 @@ import { Course } from '../model/course';
 })
 export class EditcourseComponent implements OnInit {
   course: any;
+  alert: any;
 
   constructor(
     private _courseService: CourseListService,
@@ -38,12 +39,20 @@ export class EditcourseComponent implements OnInit {
   editCourse(data: any) {
     const id = this.route.snapshot.paramMap.get('id');
     this._courseService.updateCourse(id, data).subscribe((result: any) => {
-      alert('Course updated successfully');
-      this.goBack();
+      this.showAlert() ;
     });
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+
+  showAlert() {
+    this.alert = true;
+  }
+  closeAlert() {
+    this.alert = false;
+    this.goBack();
   }
 }

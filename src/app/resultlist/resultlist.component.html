@@ -1,36 +1,53 @@
-<div>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/result">SMS</a>
+<!--<div>-->
+<!--  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">-->
+<!--    <div class="container-fluid">-->
+<!--      <a class="navbar-brand" href="/result">SMS</a>-->
 
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item mx-3">
-            <a class="nav-link active" routerLink="/result">Result Table </a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link" routerLink="/result/addresult">Add Result</a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="text-white">Result Entity</h2>
-      </div>
-    </div>
-  </nav>
-</div>
+<!--      <div class="collapse navbar-collapse" id="navbarColor02">-->
+<!--        <ul class="navbar-nav me-auto">-->
+<!--          <li class="nav-item mx-3">-->
+<!--            <a class="nav-link active" routerLink="/result">Result Table </a>-->
+<!--          </li>-->
+<!--          <li class="nav-item mx-3">-->
+<!--            <a class="nav-link" routerLink="/result/addresult">Add Result</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <h2 class="text-white">Result Entity</h2>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+<!--</div>-->
+
+
 
 <div class="container aqua-gradient">
+
+  <div class="d-flex align-items-center justify-content-end py-4">
+    <div>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        routerLink="/result/addresult"
+      >
+        <span class="material-icons"> add </span>
+      </button>
+    </div>
+  </div>
+
+
   <div class="row">
+
     <div class="col-sm-12 table-responsive table-hover">
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">id</th>
-            <th scope="col">Status</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col sm-3">#</th>
+            <th scope="col sm-2">id</th>
+            <th scope="col sm-3">Status</th>
+            <th scope="col sm-2">Edit</th>
+            <th scope="col sm-2">Delete</th>
           </tr>
         </thead>
         <tbody *ngFor="let result of results">
