@@ -1,0 +1,78 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/result">SMS</a>
+
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item mx-3">
+            <a class="nav-link active" routerLink="/result">Result Table </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-white">Result Entity</h2>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 mx-auto" style="margin-top: 100px">
+      <!-- alert start -->
+      <div
+        class="alert alert-success alert-dismissible fade show"
+        *ngIf="alert"
+        role="alert"
+      >
+        <strong>Hooray!</strong> Department added successfully.
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          (click)="closeAlert()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- alert end -->
+
+      <form #resultForm="ngForm" (ngSubmit)="onSubmit(resultForm.value)">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Enter Id</label>
+          <input
+            type="number"
+            class="form-control"
+            id="formGroupExampleInput"
+            name="id"
+            ngModel
+            placeholder="Enter your Id"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Enter Name</label>
+          <input
+            type="text"
+            name="status"
+            ngModel
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Enter your status"
+          />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" type="submit">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="">
+  <form #resultForm="ngForm" (ngSubmit)="onSubmit(resultForm.value)">
+    <input type="number" name="id" ngModel placeholder="Enter your Id" />
+    <input type="text" ngModel name="status" placeholder="Enter your status" />
+    <button type="submit">SUBMIT</button>
+  </form>
+</div> -->

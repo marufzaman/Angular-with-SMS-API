@@ -18,6 +18,16 @@ import { EditDepartmentComponent } from './edit-department/edit-department.compo
 import { ViewDepartmentComponent } from './view-department/view-department.component';
 
 
+import { ListCouresComponent } from './list-coures/list-coures.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
+import { EditcourseComponent } from './editcourse/editcourse.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ResultlistComponent } from './resultlist/resultlist.component';
+import { AddresultComponent } from './addresult/addresult.component';
+import { EditresultComponent } from './editresult/editresult.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +44,22 @@ import { ViewDepartmentComponent } from './view-department/view-department.compo
     CounterComponent,
     EditDepartmentComponent,
     ViewDepartmentComponent,
+    StudentViewComponent,
+
+    ListCouresComponent,
+    AddcourseComponent,
+    EditcourseComponent,
+    PageNotFoundComponent,
+
+    ResultlistComponent,
+    AddresultComponent,
+    EditresultComponent,
+
+
   ],
-  imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule],
+  imports: [HttpClientModule, BrowserModule, FormsModule, AppRoutingModule, BrowserAnimationsModule,
+
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

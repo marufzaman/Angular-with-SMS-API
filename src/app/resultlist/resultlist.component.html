@@ -1,0 +1,110 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/result">SMS</a>
+
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item mx-3">
+            <a class="nav-link active" routerLink="/result">Result Table </a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" routerLink="/result/addresult">Add Result</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-white">Result Entity</h2>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container aqua-gradient">
+  <div class="row">
+    <div class="col-sm-12 table-responsive table-hover">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">Status</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let result of results">
+          <tr class="table-info">
+            <th scope="row">{{ results.indexOf(result) + 1 }}</th>
+            <td>{{ result.id }}</td>
+            <td>{{ result.status }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                routerLink="/result/edit/{{ result.id }}"
+              >
+                <span class="material-icons"> create </span>
+              </button>
+            </td>
+            <td>
+              <button
+                (click)="deleteResult(result.id)"
+                type="button"
+                class="btn btn-outline-danger"
+              >
+                <span class="material-icons"> delete_forever </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row text-light bg-dark resultList">
+    <div class="col-sm-4">
+      <label>ID</label>
+    </div>
+    <div class="col-sm-4">
+      <label>Status</label>
+    </div>
+
+    <div class="col-sm-2">
+      <label>Edit</label>
+    </div>
+    <div class="col-sm-2">
+      <label>Delete</label>
+    </div>
+  </div>
+
+  <div class="row text-light bg-dark resultList" *ngFor="let result of results">
+    <div class="col-sm-4">
+      {{ result.id }}
+    </div>
+    <div class="col-sm-4">
+      {{ result.status }}
+    </div>
+
+    <div class="col-sm-2">
+      <button
+        type="button"
+        class="btn btn-primary"
+        routerLink="/result/edit/{{ result.id }}"
+      >
+        Edit
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button
+        (click)="deleteResult(result.id)"
+        type="button"
+        class="btn btn-danger"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div> -->

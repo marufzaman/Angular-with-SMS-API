@@ -5,6 +5,14 @@ import { StudentEditComponent } from './student-edit/student-edit.component';
 import { StudentViewComponent } from './student-view/student-view.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentsComponent } from './students/students.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
+import { EditcourseComponent } from './editcourse/editcourse.component';
+import { ListCouresComponent } from './list-coures/list-coures.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddresultComponent } from './addresult/addresult.component';
+import { EditresultComponent } from './editresult/editresult.component';
+import { ResultlistComponent } from './resultlist/resultlist.component';
+
 
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { DepartmentComponent } from './department/department.component';
@@ -29,6 +37,13 @@ const routes: Routes = [
     path: 'department/view/:id',
     component: ViewDepartmentComponent,
   },
+  { path: 'courses', component: ListCouresComponent },
+  { path: 'courses/addcourse', component: AddcourseComponent },
+  { path: 'courses/editcourse/:id', component: EditcourseComponent },
+  // {path:'**',component: PageNotFoundComponent}
+  { path: 'result', component: ResultlistComponent },
+  { path: 'result/addresult', component: AddresultComponent },
+  { path: 'result/edit/:id', component: EditresultComponent },
 ];
 
 @NgModule({
