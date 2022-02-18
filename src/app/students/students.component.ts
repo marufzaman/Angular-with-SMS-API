@@ -14,20 +14,60 @@ export class StudentsComponent implements OnInit {
 
   constructor(private studentService: StudentService) { }
 
+  deleteWarn: boolean = false;
+  alert: boolean = false;
+  deleteStudentID: Number = -1;
+  deleteStudentName: String = "";
+
+
   ngOnInit(): void {
     this.getStudents();
   }
 
-  getStudents():void{
-    this.studentService.getStudents()
-    .subscribe(students => this.students = students);
+  getStudents(){
+    this.studentService.getStudents().subscribe(students => {
+      this.showWarn();
+      this.students = students;
+    });
   }
 
-  delete(student: Student): void {
-    if(confirm('DELETE '+student.name+'?')){
-      this.students = this.students.filter(s => s !== student);
-      this.studentService.deleteStudent(student.id).subscribe();
-    }
+  delete(id: any): void {
+    const timeOutSet = 15;
+    // this.students = this.students.filter(s => s !== student);
+    this.studentService.deleteStudent(id).subscribe((response) => {
+      this.getStudents();
+      this.closeWarn();
+      this.showAlert();
+      setTimeout(() => {
+        this.closeAlert();
+        this.deleteStudentName = "";
+      }, (1000*timeOutSet));
+      this.deleteStudentID = -1;
+    });
+  }
+
+  showWarn() {
+    this.deleteWarn = true;
+  }
+
+  closeWarn() {
+    this.deleteWarn = false;
+  }
+
+  showAlert() {
+    this.alert = true;
+  }
+
+  closeAlert() {
+    this.alert = false;
+    this.deleteStudentName = "";
+  }
+
+  setDeleteStudentProfile(student: Student) {
+    this.alert = false;
+    console.log(student);
+    this.deleteStudentID = student.id;
+    this.deleteStudentName = student.name;
   }
 
 }
