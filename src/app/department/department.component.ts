@@ -30,8 +30,9 @@ export class DepartmentComponent implements OnInit {
       this.getDepartments();
       this.closeWarn();
       this.showAlert();
-      this.deleteDepartmentId = undefined;
-      this.deleteDepartmentName = undefined;
+      setTimeout(() => {
+        this.closeAlert();
+      }, 2000);
     });
   }
 

@@ -24,7 +24,7 @@ export class AddDepartmentComponent implements OnInit {
       this.showAlert();
       setTimeout(() => {
         this.closeAlert();
-      }, 2000);
+      }, 3000);
     });
   }
 

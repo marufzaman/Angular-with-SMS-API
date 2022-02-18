@@ -27,6 +27,9 @@ export class EditDepartmentComponent implements OnInit {
   getEditedDepartmentData(id: any, data: NgForm) {
     this.department.updateDepartment(id, data).subscribe((response) => {
       this.showAlert();
+      setTimeout(() => {
+        this.closeAlert();
+      }, 3000);
     });
   }
 
@@ -48,6 +51,5 @@ export class EditDepartmentComponent implements OnInit {
 
   closeAlert() {
     this.alert = false;
-    this.location.back();
   }
 }

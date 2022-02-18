@@ -12,7 +12,6 @@ export class DepartmentService {
   constructor(private http: HttpClient) {}
   getDepartments() {
     return this.http.get(this.baseUrl);
-    // return this.departments;
   }
 
   getDepartmentById(id: any) {
